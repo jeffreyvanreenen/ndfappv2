@@ -12,4 +12,9 @@ class TelegramChat extends Model
       'type',
       'all_members_are_administrators',
     ];
+
+    public function messages()
+    {
+        return $this->hasMany(TelegramChatMessages::class, 'chat_id', 'chat_id');
+    }
 }

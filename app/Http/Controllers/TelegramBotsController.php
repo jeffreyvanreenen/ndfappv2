@@ -62,8 +62,8 @@ class TelegramBotsController extends Controller
 
     public function chats()
     {
-        $bots = TelegramBot::all();
-        return Inertia::render('Telegram/Index')->with('bots', $bots);
+        $chats = TelegramChat::with('messages')->get();
+        return Inertia::render('Telegram/Chats')->with('chats', $chats);
     }
 
     public function webhook(Request $request)
