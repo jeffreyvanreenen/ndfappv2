@@ -60,6 +60,8 @@ class TelegramBotsController extends Controller
     {
         $path = "https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY";
 
+        $request = json_decode($request);
+
         $chatId = $request->message->chat->id;
         $message = $request->message->text;
 
