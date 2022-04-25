@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\TelegramBot;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Inertia\Inertia;
+
+class TelegramBotsController extends Controller
+{
+    public function index()
+    {
+        $bots = TelegramBot::all();
+
+        return Inertia::render('Telegram/Index')->with('bots', $bots);
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|unique:telegram_bots',
+            'token' => 'required|unique:telegram_bots',
+        ]);
+
+        $bot = new TelegramBot;
+        $bot->name = $request->name;
+        $bot->token = $request->token;
+        $bot->save();
+
+        return Redirect::route('telegram.index')->with('message', 'Bot succesvol aangemaakt!');;
+    }
+
+    public function show(TelegramBot $telegramBot)
+    {
+        //
+    }
+
+    public function edit(TelegramBot $telegramBot)
+    {
+        //
+    }
+
+    public function update(Request $request, TelegramBot $telegramBot)
+    {
+        //
+    }
+
+    public function destroy(TelegramBot $telegramBot)
+    {
+        //
+    }
+}

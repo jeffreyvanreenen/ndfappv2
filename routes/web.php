@@ -6,6 +6,9 @@ use Inertia\Inertia;
 use App\Http\Controllers\DossiersController;
 use App\Http\Controllers\RSSfeedsController;
 use App\Http\Controllers\SourceCatagoriesController;
+use App\Http\Controllers\TwitterApiController;
+use App\Http\Controllers\FacebookApiController;
+use App\Http\Controllers\TelegramBotsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +37,10 @@ Route::get('/dashboard', function () {
 Route::resource('dossier', DossiersController::class)->middleware(['auth', 'verified']);
 Route::resource('bronnen/rss', RSSfeedsController::class)->middleware(['auth', 'verified']);
 Route::resource('sources', SourceCatagoriesController::class)->middleware(['auth', 'verified']);
+Route::resource('twitter', TwitterApiController::class)->middleware(['auth', 'verified']);
+Route::resource('facebook', FacebookApiController::class)->middleware(['auth', 'verified']);
+Route::resource('telegram', TelegramBotsController::class)->middleware(['auth', 'verified']);
 
 Route::get('scrape/rss/', [RSSfeedsController::class, 'scrape'])->middleware(['auth', 'verified'])->name('rss.scrape');
-
 
 require __DIR__.'/auth.php';

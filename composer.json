@@ -13,7 +13,8 @@
         "laravel/tinker": "^2.7",
         "tightenco/ziggy": "^1.0",
       "ext-simplexml": "*",
-        "ext-libxml": "*"
+        "ext-libxml": "*",
+      "ext-curl": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

@@ -39,6 +39,12 @@ const showingNavigationDropdown = ref(false);
                                 <BreezeNavLink :href="route('sources.index')" :active="route().current('sources.*')">
                                     Bron Categorieën
                                 </BreezeNavLink>
+                                <BreezeNavLink :href="route('twitter.index')" :active="route().current('twitter.*')">
+                                    Twitter bronnen
+                                </BreezeNavLink>
+                                <BreezeNavLink :href="route('telegram.index')" :active="route().current('telegram.*')">
+                                    Telegram
+                                </BreezeNavLink>
                                 <BreezeNavLink :href="route('rss.scrape')" :active="route().current('test.*')">
                                     RSS Scrape
                                 </BreezeNavLink>

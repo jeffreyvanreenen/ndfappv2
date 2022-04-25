@@ -88,14 +88,14 @@ const submit = () => {
                         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                             <div class="p-6 bg-white border-b border-gray-200">
                                 <div class="flex flex-col">
-                                    <h3 class="font-semibold text-xl pb-4">Betrokkenen</h3>
+                                    <h3 class="font-semibold text-xl pb-4">Interne Betrokkenen</h3>
 
                                     <ul>
                                         <li v-for="gebruiker in gebruikers" :key="gebruiker.id">
                                             <input
                                                 class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                                 type="checkbox" :id="gebruiker.naam" :value="gebruiker.naam"
-                                                v-model="form.interne_betrokkenen">
+                                                v-model="form.interne_betrokkenen"> -
                                             <label :for="gebruiker.naam">{{ gebruiker.naam }}</label>
                                         </li>
                                     </ul>
@@ -126,12 +126,16 @@ const submit = () => {
                                         <td class="w-1/2">{{ form.omschrijving }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="w-1/2 font-semibold">Betrokkenen:</td>
+                                        <td class="w-1/2 font-semibold">Interne betrokkenen:</td>
                                         <td class="w-1/2">
                                             <ul>
                                                 <li v-for="check in form.interne_betrokkenen">{{ check }}</li>
                                             </ul>
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="w-1/2 font-semibold">&nbsp;</td>
+                                        <td class="w-1/2">&nbsp;</td>
                                     </tr>
                                     <tr>
                                         <td class="w-1/2 font-semibold">&nbsp;</td>

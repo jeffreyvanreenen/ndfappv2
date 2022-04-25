@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\RssScrapeJob;
+use App\Jobs\TwitterScrapeJob;
 use App\Models\RSSfeed;
 use App\Models\RssItem;
 use App\Models\SourceCatagory;
@@ -129,5 +130,6 @@ class RSSfeedsController extends Controller
         foreach ($feeds as $feed) {
             $this->dispatch(new RssScrapeJob($feed->id));
        }
+        $this->dispatch(new TwitterScrapeJob());
     }
 }
