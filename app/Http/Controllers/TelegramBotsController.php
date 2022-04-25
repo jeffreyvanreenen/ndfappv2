@@ -61,8 +61,9 @@ class TelegramBotsController extends Controller
     {
         $path = "https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY";
 
-        $response = Http::get('https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY/sendmessage?chat_id=5307159749&text='.$request);
+        $response = Http::get('https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY/sendmessage?chat_id=-737197277&text='.$request);
 
+        echo $response;
 
         exit;
 
