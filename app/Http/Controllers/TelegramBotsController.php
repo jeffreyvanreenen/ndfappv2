@@ -61,35 +61,32 @@ class TelegramBotsController extends Controller
 
     public function webhook(Request $request)
     {
-        $path = "https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY";
-
+//        $path = "https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY";
 //        $response = Http::get('https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY/sendmessage?chat_id=-737197277&text=' . $request);
-
-        $request = json_decode($request);
 
         $chat = TelegramChat::updateOrCreate(
             [
-                'chat_id' => $request->message->chat->id,
+                'chat_id' => $request['message']['chat']['id'],
             ],
             [
-                'title' => $request->message->chat->title,
-                'type' => $request->message->chat->type,
-                'all_members_are_administrators' => $request->message->chat->all_members_are_administrators,
+                'title' =>$request['message']['chat']['title'],
+                'type' => $request['message']['chat']['type'],
+                'all_members_are_administrators' => $request['message']['chat']['all_members_are_administrators'],
             ]
         );
 
         $messages = new TelegramChatMessages;
-        $messages->update_id = $request->update_id;
-        $messages->message_id = $request->message->message_id;
-        $messages->user_id = $request->message->from->id;
-        $messages->is_bot = $request->message->from->is_bot;
-        $messages->user_first_name = $request->message->from->first_name;
-        $messages->user_last_name = $request->message->from->last_name;
-        $messages->user_username = $request->message->from->username;
-        $messages->user_language_code = $request->message->from->language_code;
-        $messages->chat_id = $request->message->chat->id;
-        $messages->date = strftime("%Y-%m-%d %H:%M:%S", $request->message->date);
-        $messages->text = $request->message->text;
+        $messages->update_id = $request['update_id'];
+        $messages->message_id = $request['message']['message_id'];
+        $messages->user_id = $request['message']['from']['id'];
+        $messages->is_bot = $request['message']['from']['is_bot'];
+        $messages->user_first_name = $request['message']['from']['first_name'];
+        $messages->user_last_name = $request['message']['from']['last_name'];
+        $messages->user_username = $request['message']['from']['username'];
+        $messages->user_language_code = $request['message']['from']['language_code'];
+        $messages->chat_id = $request['message']['chat']['id'];
+        $messages->date = strftime("%Y-%m-%d %H:%M:%S", $request['message']['date']);
+        $messages->text = $request['message']['text'];
         $messages->save();
 
     }
