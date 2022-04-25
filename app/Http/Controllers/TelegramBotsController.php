@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TelegramBot;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -60,7 +61,8 @@ class TelegramBotsController extends Controller
     {
         $path = "https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY";
 
-        file_get_contents($path.'/sendmessage?chat_id=5307159749&text='.$request);
+        $response = Http::get('https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY/sendmessage?chat_id=5307159749&text='.$request);
+
 
         exit;
 
