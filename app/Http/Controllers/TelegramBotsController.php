@@ -55,4 +55,9 @@ class TelegramBotsController extends Controller
     {
         //
     }
+
+    public function webhook()
+    {
+        
+    }
 }
