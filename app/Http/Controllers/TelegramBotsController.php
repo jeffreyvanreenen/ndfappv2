@@ -42,7 +42,7 @@ class TelegramBotsController extends Controller
 
     public function show(TelegramBot $telegramBot)
     {
-        //
+        echo 'show';
     }
 
     public function edit(TelegramBot $telegramBot)
@@ -58,6 +58,12 @@ class TelegramBotsController extends Controller
     public function destroy(TelegramBot $telegramBot)
     {
         //
+    }
+
+    public function chats()
+    {
+        $bots = TelegramBot::all();
+        return Inertia::render('Telegram/Index')->with('bots', $bots);
     }
 
     public function webhook(Request $request)

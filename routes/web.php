@@ -41,6 +41,8 @@ Route::resource('twitter', TwitterApiController::class)->middleware(['auth', 've
 Route::resource('facebook', FacebookApiController::class)->middleware(['auth', 'verified']);
 Route::resource('telegram', TelegramBotsController::class)->middleware(['auth', 'verified']);
 
+Route::get('telegram/chats', [TelegramBotsController::class, 'chats'])->middleware(['auth', 'verified'])->name('telegram.chatss');
+
 Route::get('scrape/rss/', [RSSfeedsController::class, 'scrape'])->middleware(['auth', 'verified'])->name('rss.scrape');
 
 require __DIR__.'/auth.php';
