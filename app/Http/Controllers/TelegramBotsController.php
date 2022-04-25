@@ -7,6 +7,7 @@ use App\Models\TelegramChat;
 use App\Models\TelegramChatMessages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
@@ -64,17 +65,22 @@ class TelegramBotsController extends Controller
 //        $path = "https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY";
         $response = Http::get('https://api.telegram.org/bot5307159749:AAEiJzmNfY_sKqP8hH2Y8R2V2y5a7IBftSY/sendmessage?chat_id=-737197277&text=Hallo!');
 
-        $chat = TelegramChat::updateOrCreate(
-            [
-                'chat_id' => $request['message']['chat']['id'],
-            ],
-            [
-                'title' =>$request['message']['chat']['title'],
-                'type' => $request['message']['chat']['type'],
-                'all_members_are_administrators' => $request['message']['chat']['all_members_are_administrators'],
-            ]
-        );
+        try {
+            $chat = TelegramChat::updateOrCreate(
+                [
+                    'chat_id' => $request['message']['chat']['id'],
+                ],
+                [
+                    'title' => $request['message']['chat']['title'],
+                    'type' => $request['message']['chat']['type'],
+                    'all_members_are_administrators' => $request['message']['chat']['all_members_are_administrators'],
+                ]
+            );
+        } catch (\Exception $e) {
+            Log::error($e);
+        }
 
+        try {
         $messages = new TelegramChatMessages;
         $messages->update_id = $request['update_id'];
         $messages->message_id = $request['message']['message_id'];
@@ -88,6 +94,8 @@ class TelegramBotsController extends Controller
         $messages->date = strftime("%Y-%m-%d %H:%M:%S", $request['message']['date']);
         $messages->text = $request['message']['text'];
         $messages->save();
-
+        } catch (\Exception $e) {
+            Log::error($e);
+        }
     }
 }
