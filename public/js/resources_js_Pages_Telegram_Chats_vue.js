@@ -1055,7 +1055,7 @@ var _hoisted_7 = {
   "class": "bg-white overflow-hidden shadow-sm sm:rounded-lg h-full"
 };
 var _hoisted_8 = {
-  "class": "p-6 bg-white border-b border-gray-200 h-full"
+  "class": "p-6 bg-white border-b border-gray-200 h-full overflow-y-auto"
 };
 var _hoisted_9 = {
   "class": "flex flex-col h-full"
@@ -1088,7 +1088,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       )])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.chats, function (chat) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
           key: chat.id,
-          "class": "w-1/4 flex-none h-full overflow-y-auto h-full"
+          "class": "w-1/4 flex-none h-full h-full"
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", _hoisted_10, "Chat - " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(chat.title) + " (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(chat.type) + ")", 1
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", null, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(chat.messages, function (message) {

@@ -51,9 +51,9 @@ const submit = () => {
 
             <div
                 class="flex flex-col md:flex-row sm:space-y-4 md:space-y-0 md:space-x-4 pl-3 pr-3 overflow-x-auto h-full">
-                <div v-for="chat in chats" :key="chat.id" class="w-1/4 flex-none h-full overflow-y-auto h-full">
+                <div v-for="chat in chats" :key="chat.id" class="w-1/4 flex-none h-full h-full">
                     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg h-full">
-                        <div class="p-6 bg-white border-b border-gray-200 h-full">
+                        <div class="p-6 bg-white border-b border-gray-200 h-full overflow-y-auto">
                             <div class="flex flex-col h-full">
                                 <h3 class="font-semibold text-xl pb-4">Chat - {{ chat.title }} ({{ chat.type }})</h3>
                                     <div class="flex space-y-4">
