@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\TelegramChatMessageReceived;
 use App\Models\TelegramBot;
 use App\Models\TelegramChat;
 use App\Models\TelegramChatMessages;
@@ -103,5 +104,7 @@ class TelegramBotsController extends Controller
         } catch (\Exception $e) {
             Log::error($e);
         }
+
+        event(new TelegramChatMessageReceived($request['message']['text']));
     }
 }

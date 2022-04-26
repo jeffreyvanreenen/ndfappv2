@@ -12,10 +12,11 @@ defineProps({
     chats: {},
 });
 
-const interval = setInterval(function () {
-    Inertia.reload({only: ['chats'], preserveScroll: true});
-}, 10000);
+// const interval = setInterval(function () {
+//     Inertia.reload({only: ['chats'], preserveScroll: true});
+// }, 10000);
 
+const destroyinterval = clearInterval()
 const form = useForm({
     reply: '',
     reply_id: '',
@@ -27,6 +28,12 @@ const submit = () => {
     console.log(reply);
     console.log(reply_id);
 };
+
+Echo.channel(`messages`)
+    .listen('.newMessage', (message) => {
+        console.log(message);
+        Inertia.reload({only: ['chats'], preserveScroll: true});
+    });
 </script>
 
 <template>
