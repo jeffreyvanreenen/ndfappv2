@@ -2,7 +2,6 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {Head} from '@inertiajs/inertia-vue3';
 import {Link} from '@inertiajs/inertia-vue3';
-import dayjs from 'dayjs';
 
 defineProps({
     rsses: {},
