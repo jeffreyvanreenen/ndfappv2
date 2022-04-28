@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
@@ -14,6 +16,7 @@ class AuthController extends Controller
     {
         return Socialite::driver('microsoft')->redirect();
     }
+
     public function loginWithAzure()
     {
         $microsoft_user = Socialite::driver('microsoft')->user();
@@ -26,6 +29,7 @@ class AuthController extends Controller
                 'name' => $microsoft_user->name,
                 'email' => $microsoft_user->email,
                 'azure_token' => $microsoft_user->token,
+                'password' => Hash::make(Str::random(40)),
 //                'azure_nickname' => $microsoft_user->nickname,
 //                'azure_avatar' => $microsoft_user->avatar,
 //                'azure_userinfo' => json_encode($microsoft_user->user),

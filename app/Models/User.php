@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'azure_token',
+        'azure_id'
     ];
 
     /**
@@ -31,6 +33,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'azure_id',
+        'azure_token',
     ];
 
     /**
