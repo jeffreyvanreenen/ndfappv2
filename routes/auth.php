@@ -17,13 +17,13 @@ Route::middleware('guest')->group(function () {
 
     Route::post('register', [RegisteredUserController::class, 'store']);
 
-//    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-//                ->name('login');
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+                ->name('login');
 
     Route::get('login/azure', [AuthController::class, 'login'])
         ->name('login.azure');
 
-//    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
     Route::get('loginazure', [AuthController::class, 'loginWithAzure']);
 
