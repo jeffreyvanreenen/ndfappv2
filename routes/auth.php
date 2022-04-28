@@ -25,7 +25,7 @@ Route::middleware('guest')->group(function () {
 
 //    Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
-    Route::post('login', [AuthController::class, 'loginWithAzure']);
+    Route::get('loginazure', [AuthController::class, 'loginWithAzure']);
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->name('password.request');
