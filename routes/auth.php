@@ -20,8 +20,8 @@ Route::middleware('guest')->group(function () {
 //    Route::get('login', [AuthenticatedSessionController::class, 'create'])
 //                ->name('login');
 
-    Route::get('login', [AuthController::class, 'login'])
-        ->name('login');
+    Route::get('login/azure', [AuthController::class, 'login'])
+        ->name('login.azure');
 
 //    Route::post('login', [AuthenticatedSessionController::class, 'store']);
 
