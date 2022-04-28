@@ -105,6 +105,6 @@ class TelegramBotsController extends Controller
             Log::error($e);
         }
 
-        event(new TelegramChatMessageReceived($request['message']['text']));
+        TelegramChatMessageReceived::dispatch($request['message']['text']);
     }
 }

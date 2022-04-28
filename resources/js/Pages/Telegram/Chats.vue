@@ -16,7 +16,6 @@ defineProps({
 //     Inertia.reload({only: ['chats'], preserveScroll: true});
 // }, 10000);
 
-const destroyinterval = clearInterval()
 const form = useForm({
     reply: '',
     reply_id: '',

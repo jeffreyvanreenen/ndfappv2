@@ -373,7 +373,6 @@ __webpack_require__.r(__webpack_exports__);
     //     Inertia.reload({only: ['chats'], preserveScroll: true});
     // }, 10000);
 
-    var destroyinterval = clearInterval();
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.useForm)({
       reply: '',
       reply_id: ''
@@ -393,7 +392,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     });
     var __returned__ = {
-      destroyinterval: destroyinterval,
       form: form,
       submit: submit,
       BreezeAuthenticatedLayout: _Layouts_Authenticated_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
