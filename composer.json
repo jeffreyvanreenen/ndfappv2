@@ -16,8 +16,10 @@
         "laravel/socialite": "^5.5",
         "laravel/tinker": "^2.7",
         "pusher/pusher-php-server": "^7.0",
+        "rappasoft/laravel-authentication-log": "^2.0",
         "socialiteproviders/microsoft": "^4.1",
-        "tightenco/ziggy": "^1.0"
+        "tightenco/ziggy": "^1.0",
+        "torann/geoip": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
