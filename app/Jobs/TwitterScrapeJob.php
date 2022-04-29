@@ -94,6 +94,8 @@ class TwitterScrapeJob implements ShouldQueue
                     //tweet toevoegen
                     $twittertweets = TwitterTweets::firstOrCreate([
                         'tw_id' => $tweet->id,
+                        ],
+                        [
                         'author_id' => $tweet->author_id,
                         'text' => $tweet->text,
                         'tw_created_at' => strftime("%Y-%m-%d %H:%M:%S", strtotime($tweet->created_at)),
