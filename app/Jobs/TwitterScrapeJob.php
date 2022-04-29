@@ -70,9 +70,8 @@ class TwitterScrapeJob implements ShouldQueue
                 $url = 'https://api.twitter.com/2/users/' . $account->tw_id . '/tweets?tweet.fields=created_at&expansions=author_id,attachments.media_keys&media.fields=url&max_results=10';
                 $tweets = json_decode($this->makeRequestToTwitterApi($url));
 
-                //Media toevoegen aan tweets
                 foreach ($tweets->data as $tweet) {
-                    $media_keys = null;
+                    //Media toevoegen aan tweets
                     if (!empty($tweet->attachments)) {
                         $media_keys = array();
                         foreach ($tweet->attachments->media_keys as $item) {
@@ -91,9 +90,8 @@ class TwitterScrapeJob implements ShouldQueue
                     } else {
                         $media_keys = null;
                     }
-                }
 
-                foreach ($tweets->data as $tweet) {
+                    //tweet toevoegen
                     $twittertweets = TwitterTweets::firstOrCreate([
                         'tw_id' => $tweet->id,
                         'author_id' => $tweet->author_id,
@@ -105,6 +103,9 @@ class TwitterScrapeJob implements ShouldQueue
                         'media' => $media_keys,
                         'bron' => 'follow_'.$account->id,
                     ]);
+
+                    //media key reset
+                    $media_keys = null;
                 }
 
             }
