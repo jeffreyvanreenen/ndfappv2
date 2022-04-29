@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use App\Jobs\RssScrapeJob;
 
 class GenerateRssScrapeJob implements ShouldQueue
 {
@@ -33,7 +34,7 @@ class GenerateRssScrapeJob implements ShouldQueue
     {
         $feeds = RSSfeed::all();
         foreach ($feeds as $feed) {
-            $this->dispatch(new RssScrapeJob($feed->id));
+            $this->dispatch(new RssScrapeJob($feed->id))->delay(3);
         }
     }
 }
