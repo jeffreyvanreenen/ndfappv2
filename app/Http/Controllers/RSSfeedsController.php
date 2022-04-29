@@ -126,11 +126,7 @@ class RSSfeedsController extends Controller
 
     public function scrape()
     {
-       $feeds = RSSfeed::all();
-        foreach ($feeds as $feed) {
-//            $this->dispatch(new RssScrapeJob($feed->id));
-            RssScrapeJob::dispatch($feed->id);
-       }
+        $this->dispatch(new RssScrapeJob());
         $this->dispatch(new TwitterScrapeJob());
     }
 }
