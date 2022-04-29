@@ -45,7 +45,7 @@ const showingNavigationDropdown = ref(false);
                                 <BreezeNavLink :href="route('telegram.index')" :active="route().current('telegram.*')">
                                     Telegram
                                 </BreezeNavLink>
-                                <BreezeNavLink :href="route('chats')" :active="route().current('telegram.*')">
+                                <BreezeNavLink :href="route('chats')" :active="route().current('chats.*')">
                                     Chats
                                 </BreezeNavLink>
                                 <BreezeNavLink :href="route('rss.scrape')" :active="route().current('test.*')">
@@ -94,15 +94,30 @@ const showingNavigationDropdown = ref(false);
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <BreezeResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        <BreezeNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                             Dashboard
-                        </BreezeResponsiveNavLink>
-                        <BreezeResponsiveNavLink :href="route('dossier.index')" :active="route().current('dossier.*')">
+                        </BreezeNavLink>
+                        <BreezeNavLink :href="route('dossier.index')" :active="route().current('dossier.*')">
                             Cases
-                        </BreezeResponsiveNavLink>
-                        <BreezeResponsiveNavLink :href="route('rss.index')" :active="route().current('rss.*')">
+                        </BreezeNavLink>
+                        <BreezeNavLink :href="route('rss.index')" :active="route().current('rss.*')">
                             RSS Bronnen
-                        </BreezeResponsiveNavLink>
+                        </BreezeNavLink>
+                        <BreezeNavLink :href="route('sources.index')" :active="route().current('sources.*')">
+                            Bron Categorieën
+                        </BreezeNavLink>
+                        <BreezeNavLink :href="route('twitter.index')" :active="route().current('twitter.*')">
+                            Twitter bronnen
+                        </BreezeNavLink>
+                        <BreezeNavLink :href="route('telegram.index')" :active="route().current('telegram.*')">
+                            Telegram
+                        </BreezeNavLink>
+                        <BreezeNavLink :href="route('chats')" :active="route().current('chats.*')">
+                            Chats
+                        </BreezeNavLink>
+                        <BreezeNavLink :href="route('rss.scrape')" :active="route().current('test.*')">
+                            RSS Scrape
+                        </BreezeNavLink>
                     </div>
 
                     <!-- Responsive Settings Options -->
