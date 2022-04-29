@@ -54,7 +54,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect("https://login.microsoftonline.com/common/oauth2/v2.0/logout");
-//        return redirect('/');
+        return redirect('/');
     }
 }
