@@ -72,6 +72,7 @@ class TwitterScrapeJob implements ShouldQueue
 
                 //Media toevoegen aan tweets
                 foreach ($tweets->data as $tweet) {
+                    $media_keys = null;
                     if (!empty($tweet->attachments)) {
                         $media_keys = array();
                         foreach ($tweet->attachments->media_keys as $item) {
