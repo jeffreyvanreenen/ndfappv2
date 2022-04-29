@@ -23,8 +23,8 @@ class TwitterApiController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'username' => 'required_without:listid|string|nullable',
-            'listid' => 'required_without:username|numeric|nullable',
+            'username' => 'required_without:listid|string|nullable|unique:twitter_follows',
+            'listid' => 'required_without:username|numeric|nullable|unique:twitter_lists',
         ]);
 
         if(!empty($request->username))

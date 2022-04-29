@@ -45,7 +45,7 @@ const showingNavigationDropdown = ref(false);
                                 <BreezeNavLink :href="route('telegram.index')" :active="route().current('telegram.*')">
                                     Telegram
                                 </BreezeNavLink>
-                                <BreezeNavLink :href="route('chats')" :active="route().current('chats.*')">
+                                <BreezeNavLink :href="route('chats')" :active="route().current('chats')">
                                     Chats
                                 </BreezeNavLink>
                                 <BreezeNavLink :href="route('rss.scrape')" :active="route().current('test.*')">
