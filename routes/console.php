@@ -20,5 +20,8 @@ Artisan::command('inspire', function () {
 
 Artisan::command('logs:clear', function() {
     exec('echo "" > ' . storage_path('logs/laravel.log'));
+    exec('echo "" > ' . storage_path('logs/queue worker 1.txt'));
+    exec('echo "" > ' . storage_path('logs/queue worker 2.txt'));
+    exec('echo "" > ' . storage_path('logs/schedule worker.txt'));
     $this->comment('Logs have been cleared!');
 })->describe('Clear log files');
