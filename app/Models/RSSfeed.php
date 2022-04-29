@@ -7,7 +7,6 @@ use App\Models\SourceCatagory;
 
 class RSSfeed extends Model
 {
-
     protected $casts = [
         'updated_at' => 'date:d-m-Y H:i:s',
         'created_at' => 'date:d-m-Y H:i:s',

@@ -43,6 +43,6 @@ Route::resource('telegram', TelegramBotsController::class)->middleware(['auth', 
 
 Route::get('scrape/rss/', [RSSfeedsController::class, 'scrape'])->middleware(['auth', 'verified'])->name('rss.scrape');
 Route::get('chats', [TelegramBotsController::class, 'chats'])->middleware(['auth', 'verified'])->name('chats');
-Route::get('crawler', [\App\Http\Controllers\CrawlerController::class, 'dpgcrawler']);
+Route::get('crawler', [\App\Http\Controllers\CrawlerController::class, 'dpgcrawler'])->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

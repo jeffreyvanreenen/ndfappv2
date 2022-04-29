@@ -17,16 +17,14 @@ class RssScrapeJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $id;
-
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($id)
+    public function __construct()
     {
-        $this->id = $id;
+        //
     }
 
     /**
@@ -36,49 +34,53 @@ class RssScrapeJob implements ShouldQueue
      */
     public function handle()
     {
-        $rss_feed = RSSfeed::find($this->id);
-        $xml = simplexml_load_file($rss_feed->url, 'SimpleXMLElement', LIBXML_NOCDATA);
-        $source = $xml->channel->title;
+        $rss_feeds = RSSfeed::all();
 
-        foreach ($xml->channel->item as $item) {
-            try {
-                if (!empty($item->pubDate)) {
-                    $pubDate = strftime("%Y-%m-%d %H:%M:%S", strtotime($item->pubDate));
-                    $date = Carbon::now()->subHours(48);
-                    if ($date >= $pubDate) {
+        foreach ($rss_feeds as $rss_feed) {
+
+
+            $xml = simplexml_load_file($rss_feed->url, 'SimpleXMLElement', LIBXML_NOCDATA);
+            $source = $xml->channel->title;
+
+            foreach ($xml->channel->item as $item) {
+                try {
+                    if (!empty($item->pubDate)) {
+                        $pubDate = strftime("%Y-%m-%d %H:%M:%S", strtotime($item->pubDate));
+                        $date = Carbon::now()->subHours(48);
+                        if ($date >= $pubDate) {
+                            continue;
+                        }
+                    } else {
+                        $pubDate = null;
                         continue;
                     }
-                } else {
-                    $pubDate = null;
+
+                    if (!empty($item->author)) {
+                        $author = $item->author;
+                    } else {
+                        $author = $source;
+                    }
+
+                    $artikel = RssItem::firstOrCreate([
+                        'title' => $item->title,
+                        'link' => $item->link,
+                    ],
+                        [
+                            'pubDate' => $pubDate,
+                            'link' => $item->link,
+                            'description' => $item->description,
+                            'author' => $author,
+                            'source' => $source,
+                        ]);
+
+                    //Updated at updaten
+                    $rss_feed->touch();
+
+                } catch (\Exception $e) {
+                    Log::error($e);
                     continue;
                 }
-
-                if (!empty($item->author)) {
-                    $author = $item->author;
-                } else {
-                    $author = $source;
-                }
-
-                $artikel = RssItem::firstOrCreate([
-                    'title' => $item->title,
-                    'link' => $item->link,
-                ],
-                    [
-                        'pubDate' => $pubDate,
-                        'link' => $item->link,
-                        'description' => $item->description,
-                        'author' => $author,
-                        'source' => $source,
-                    ]);
-
-                //Updated at updaten
-                $rss_feed->touch();
-
-            } catch (\Exception $e) {
-                Log::error($e);
-                continue;
             }
         }
-
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Jobs\RssScrapeJob;
+use App\Models\RSSfeed;
 use KubAT\PhpSimple\HtmlDomParser;
 use Symfony\Component\HttpClient\HttpClient;
 
