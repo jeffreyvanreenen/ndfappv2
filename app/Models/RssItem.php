@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Lorisleiva\LaravelSearchString\Concerns\SearchString;
+
 
 class RssItem extends Model
 {
+    use SearchString;
+
     protected $casts = [
         'updated_at' => 'date:d-m-Y H:i:s',
         'created_at' => 'date:d-m-Y H:i:s',
@@ -23,4 +27,9 @@ class RssItem extends Model
         'created_at',
         'updated_at',
     ];
+
+    protected $searchStringColumns = [
+        'title', 'description', 'link', 'pubDate', 'source', 'author',
+    ];
+
 }

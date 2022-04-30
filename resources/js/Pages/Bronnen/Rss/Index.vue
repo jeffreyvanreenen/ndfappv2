@@ -5,7 +5,6 @@ import {Link} from '@inertiajs/inertia-vue3';
 
 defineProps({
     rsses: {},
-    date: String,
 });
 
 

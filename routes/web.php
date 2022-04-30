@@ -9,6 +9,7 @@ use App\Http\Controllers\SourceCatagoriesController;
 use App\Http\Controllers\TwitterApiController;
 use App\Http\Controllers\FacebookApiController;
 use App\Http\Controllers\TelegramBotsController;
+use App\Http\Controllers\SearchStringsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +41,10 @@ Route::resource('sources', SourceCatagoriesController::class)->middleware(['auth
 Route::resource('twitter', TwitterApiController::class)->middleware(['auth', 'verified']);
 Route::resource('facebook', FacebookApiController::class)->middleware(['auth', 'verified']);
 Route::resource('telegram', TelegramBotsController::class)->middleware(['auth', 'verified']);
+Route::resource('searchstring', SearchStringsController::class)->middleware(['auth', 'verified']);
 
 Route::get('scrape/rss/', [RSSfeedsController::class, 'scrape'])->middleware(['auth', 'verified'])->name('rss.scrape');
 Route::get('chats', [TelegramBotsController::class, 'chats'])->middleware(['auth', 'verified'])->name('chats');
-Route::get('crawler', [\App\Http\Controllers\CrawlerController::class, 'dpgcrawler'])->middleware(['auth', 'verified']);
+Route::get('crawler', [\App\Http\Controllers\CrawlerController::class, 'dpgcrawler']);
 
 require __DIR__.'/auth.php';

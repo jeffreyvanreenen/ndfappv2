@@ -10,7 +10,7 @@ class CrawlerController extends Controller
 {
     public function dpgcrawler()
     {
-        $url = 'https://www.pzc.nl/binnenland/drukte-op-schiphol-klm-schrapt-vluchten-corendon-wijkt-uit-naar-rotterdam~a725d50b/';
+        $url = 'https://www.tubantia.nl/almelo/brand-in-geparkeerde-bestelbus-in-almelo-40-jarige-man-opgepakt-op-verdenking-brandstichting~a6962c9d/';
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

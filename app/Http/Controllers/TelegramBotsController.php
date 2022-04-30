@@ -38,6 +38,8 @@ class TelegramBotsController extends Controller
         $bot->token = $request->token;
         $bot->save();
 
+        $webhook = Http::get('https://api.telegram.org/bot'.$request->token.'/setWebhook?url=https://ndfapp.nl/api/telegram/webhook');
+
         return Redirect::route('telegram.index')->with('message', 'Bot succesvol aangemaakt!');;
     }
 

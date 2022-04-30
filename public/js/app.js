@@ -257,6 +257,26 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Dashboard_vue"
 	],
+	"./Searchstring/Edit": [
+		"./resources/js/Pages/Searchstring/Edit.vue",
+		"/js/vendor",
+		"resources_js_Pages_Searchstring_Edit_vue"
+	],
+	"./Searchstring/Edit.vue": [
+		"./resources/js/Pages/Searchstring/Edit.vue",
+		"/js/vendor",
+		"resources_js_Pages_Searchstring_Edit_vue"
+	],
+	"./Searchstring/Index": [
+		"./resources/js/Pages/Searchstring/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Searchstring_Index_vue"
+	],
+	"./Searchstring/Index.vue": [
+		"./resources/js/Pages/Searchstring/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Searchstring_Index_vue"
+	],
 	"./SourceCatagories/Create": [
 		"./resources/js/Pages/SourceCatagories/Create.vue",
 		"/js/vendor",

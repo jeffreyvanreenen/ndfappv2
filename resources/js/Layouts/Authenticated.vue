@@ -48,6 +48,9 @@ const showingNavigationDropdown = ref(false);
                                 <BreezeNavLink :href="route('chats')" :active="route().current('chats')">
                                     Chats
                                 </BreezeNavLink>
+                                <BreezeNavLink :href="route('searchstring.index')" :active="route().current('searchstring.*')">
+                                    Zoekopdracht
+                                </BreezeNavLink>
                                 <BreezeNavLink :href="route('rss.scrape')" :active="route().current('test.*')">
                                     RSS Scrape
                                 </BreezeNavLink>
@@ -114,6 +117,9 @@ const showingNavigationDropdown = ref(false);
                         </BreezeResponsiveNavLink>
                         <BreezeResponsiveNavLink :href="route('chats')" :active="route().current('chats')">
                             Chats
+                        </BreezeResponsiveNavLink>
+                        <BreezeResponsiveNavLink :href="route('searchstring.index')" :active="route().current('searchstring.*')">
+                            Zoekopdrachten
                         </BreezeResponsiveNavLink>
                         <BreezeResponsiveNavLink :href="route('rss.scrape')" :active="route().current('test.*')">
                             RSS Scrape
