@@ -47,8 +47,7 @@ class SearchStringsController extends Controller
     public function edit($searchstring)
     {
         $zoekopdracht = SearchString::find($searchstring);
-        echo $zoekopdracht->searchstring;
-        $zoekresultaten = RssItem::usingSearchString("de")->get();
+        $zoekresultaten = RssItem::all();
 
         return Inertia::render('Searchstring/Edit')->with('zoekopdracht', $zoekopdracht)->with('zoekresultaten', $zoekresultaten);
     }
