@@ -3,12 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Lorisleiva\LaravelSearchString\Concerns\SearchString;
-
+use Laravel\Scout\Searchable;
 
 class RssItem extends Model
 {
-    use SearchString;
+    use Searchable;
 
     protected $casts = [
         'updated_at' => 'date:d-m-Y H:i:s',
