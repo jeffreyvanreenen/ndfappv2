@@ -122,7 +122,7 @@ class TwitterScrapeJob implements ShouldQueue
             foreach ($lists as $list) {
                 $listid = $list->list_id;
 
-                $url = 'https://api.twitter.com/2/lists/' . $listid . '/tweets?tweet.fields=created_at&expansions=author_id,attachments.media_keys&media.fields=url&max_results=10';
+                $url = 'https://api.twitter.com/2/lists/' . $listid . '/tweets?tweet.fields=created_at&expansions=author_id,attachments.media_keys&media.fields=url&max_results=100';
                 $tweets = json_decode($this->makeRequestToTwitterApi($url));
 
                 //Media toevoegen aan tweets
